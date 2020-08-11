@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service
 
 @Service
 interface LancamentoService {
-    fun buscarPorFuncionario(funcionarioId: String, pageRequest: PageRequest): Page<Lancamento>
+    fun buscarPorFuncionarioId(funcionarioId: String, pageRequest: PageRequest): Page<Lancamento>
     fun buscarPorId(id: String): Lancamento?
     fun persistir(lancamento: Lancamento): Lancamento
     fun remover(id: String)

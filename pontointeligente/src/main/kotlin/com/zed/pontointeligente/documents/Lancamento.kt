@@ -8,7 +8,7 @@ import java.util.*
 @Document
 data class Lancamento (
         val data: Date,
-        val tipoEnum: TipoEnum,
+        val tipo: TipoEnum,
         val funcionarioId: String,
         val descricao: String? = "",
         val localizacao: String? = "",

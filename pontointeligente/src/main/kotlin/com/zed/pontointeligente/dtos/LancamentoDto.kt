@@ -2,7 +2,7 @@ package com.zed.pontointeligente.dtos
 
 import javax.validation.constraints.NotEmpty
 
-class Lancamento (
+class LancamentoDto (
 
         @get:NotEmpty(message = "Data não pode ser vazia.")
         val data: String? = null,
