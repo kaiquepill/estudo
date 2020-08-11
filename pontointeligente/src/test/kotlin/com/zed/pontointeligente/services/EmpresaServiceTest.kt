@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 
 @SpringBootTest
-class EmpresaServicesTest {
+class EmpresaServiceTest {
 
     @Autowired
     val empresaService: EmpresaService? = null
@@ -27,6 +27,7 @@ class EmpresaServicesTest {
         BDDMockito.given(empresaRepository?.findByCnpj(CNPJ)).willReturn(empresa())
         BDDMockito.given(empresaRepository?.save(empresa())).willReturn(empresa())
     }
+
     @Test
     fun testBuscarEmpresaPorCnpj() {
         val empresa: Empresa? = empresaService?.buscarPorCnpj(CNPJ)
