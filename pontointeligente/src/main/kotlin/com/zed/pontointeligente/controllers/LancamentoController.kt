@@ -82,7 +82,7 @@
 
             }
 
-            @PostMapping("/{id}")
+            @PutMapping("/{id}")
             fun atualizar(@PathVariable("id") id: String, @Valid @RequestBody lancamentoDto: LancamentoDto,
                           result: BindingResult): ResponseEntity<Response<LancamentoDto>> {
 
