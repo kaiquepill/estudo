@@ -39,7 +39,7 @@ class LancamentoServiceTest {
 
     @Test
     fun testBuscarLancamentoFuncionarioId() {
-        val lancamento: Page<Lancamento>? = lancamentoService?.buscarPorFuncionario(id, PageRequest.of(0, 10))
+        val lancamento: Page<Lancamento>? = lancamentoService?.buscarPorFuncionarioId(id, PageRequest.of(0, 10))
         Assertions.assertNotNull(lancamento)
     }
 
