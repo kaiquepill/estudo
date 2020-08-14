@@ -7,6 +7,7 @@
     import com.zed.pontointeligente.services.FuncionarioService
     import com.zed.pontointeligente.services.LancamentoService
     import com.zed.pontointeligente.response.Response
+    import org.springframework.beans.factory.annotation.Autowired
     import org.springframework.beans.factory.annotation.Value
     import org.springframework.data.domain.Page
     import org.springframework.data.domain.PageRequest
@@ -21,7 +22,8 @@
 
     @RestController
     @RequestMapping("/api/lancamentos")
-    class LancamentoController(val lancamentoService: LancamentoService, val funcionarioService: FuncionarioService) {
+    class LancamentoController @Autowired constructor(private val lancamentoService: LancamentoService
+                                                      , private val funcionarioService: FuncionarioService) {
 
         private val dataFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
@@ -67,7 +69,9 @@
                 validarFuncionario(lancamentoDto, result)
 
                 if (result.hasErrors()) {
-                    for (erro in result.allErrors) response.erros.add(erro.defaultMessage.toString())
+                    result.allErrors.forEach { erro ->
+                        erro.defaultMessage?.let { response.erros.add(it) }
+                    }
                     return ResponseEntity.badRequest().body(response)
                 }
 
@@ -88,7 +92,9 @@
                 val lancamento: Lancamento = converterDtoParaLancamento(lancamentoDto, result)
 
                 if (result.hasErrors()) {
-                    for (erro in result.allErrors) response.erros.add(erro.defaultMessage.toString())
+                    result.allErrors.forEach { erro ->
+                        erro.defaultMessage?.let { response.erros.add(it) }
+                    }
                     return ResponseEntity.badRequest().body(response)
                 }
 
