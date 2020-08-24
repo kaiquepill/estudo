@@ -20,7 +20,7 @@ class PontointeligenteApplication(
 		empresaRepository.deleteAll()
 		funcionarioRepository.deleteAll()
 
-			var empresa : Empresa = Empresa("Empresa", "10443887000146")
+		var empresa : Empresa = Empresa("Empresa", "10443887000146")
 		empresa = empresaRepository.save(empresa)
 
 		var admin : Funcionario = Funcionario(

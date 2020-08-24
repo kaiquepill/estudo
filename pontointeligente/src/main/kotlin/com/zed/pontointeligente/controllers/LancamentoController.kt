@@ -75,8 +75,8 @@
                     return ResponseEntity.badRequest().body(response)
                 }
 
-                val lancamento: Lancamento = converterDtoParaLancamento(lancamentoDto, result)
-                lancamentoService.persistir(lancamento)
+                var lancamento: Lancamento = converterDtoParaLancamento(lancamentoDto, result)
+                lancamento = lancamentoService.persistir(lancamento)
                 response.data = converterLancamentoDto(lancamento)
                 return ResponseEntity.ok(response)
 
